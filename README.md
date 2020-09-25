@@ -17,6 +17,7 @@
 3、访问安装目录，例如你的代码放在test文件夹，则安装目录是<br/>
 http://www.xxx.com/test/install <br/>
 4、填写相关数值，即可完成安装！<br/><br/>
+5、进入后台，直接访问admin即可
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlqKIICLeAAE66ujAXmsAACyigO33xAAATsC265.jpg"/>
 
 <h1>产品展示-落地页</h1>
