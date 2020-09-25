@@ -15,10 +15,8 @@
 1、下载完整代码<br/>
 2、上传到服务器<br/>
 3、访问安装目录，例如你的代码放在test文件夹，则安装目录是<br/>
-```
-http://www.xxx.com/test/install
-```
-4、填写相关数值，即可完成安装！<br/>
+http://www.xxx.com/test/install <br/>
+4、填写相关数值，即可完成安装！<br/><br/>
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlqKIICLeAAE66ujAXmsAACyigO33xAAATsC265.jpg"/>
 
 <h1>产品展示-落地页</h1>
