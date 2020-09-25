@@ -13,5 +13,9 @@
 
 <h1>产品展示</h1>
 一段描述产品的文案+淘口令页面的链接+配图。这样的朋友圈反而大家喜欢看，看起来并没有那么强烈的广告厌恶感。微信更加不会检测到你这条朋友圈是淘客，所以是很舒服的做法，想买的人自然会点进去的。那么，链接里到底是什么呢？如下图，这是我自己设计的页面，很简单的布局：顶部短标题+产品主图+长标题+券后价+原价+淘口令+复制按钮+引导文字。
-
+<br/>
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0B/ChMkKV9tkymIBN6NAA3iBCConXkAACyggHnpekADeIc778.jpg"/>
+
+<br/>
+<h1>动图演示  自动转淘口令</h1>
+<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0B/ChMkKV9tk2-IPDjaAAIjWsMN17sAACygwApf3cAAiNy330.gif"/>
