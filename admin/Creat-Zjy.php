@@ -135,6 +135,7 @@ if(isset($_SESSION["tbktools.admin"])){
       if ($result_dwzapi->num_rows > 0) {
         echo '<select class="form-control" style="margin-bottom:15px;" name="zjy_dwzapi">';
         echo '<option value="">请选择短网址API</option>';
+        echo '<option value="暂无生成">暂不生成短网址</option>';
         while($row_dwzapi = $result_dwzapi->fetch_assoc()) {
           echo '<option value="'.$row_dwzapi["dwzapi"].'">'.$row_dwzapi["dwztitle"].'</option>';
         }

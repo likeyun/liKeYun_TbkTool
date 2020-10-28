@@ -86,13 +86,10 @@ if(isset($_SESSION["tbktools.admin"])){
 		curl_close($ch);
 		sleep(1);//睡眠一秒再执行下面的
 
-		// 验证短网址是否生成成功
-		if (strpos($dwz,'http') !== false) {
-			
-			// 生成的结果是一个带有http的短网址
+		if ($zjy_dwzapi == '暂无生成') {
 			// 插入数据库
-			$sql = "INSERT INTO tbk_zjy (zjy_id, zjy_long_title, zjy_short_title, zjy_yprice, zjy_qhprice, zjy_cover, zjy_yuming, zjy_template, zjy_dwz, zjy_tkl) VALUES ('$zid', '$zjy_long_title', '$zjy_short_title', '$zjy_yprice', '$zjy_qhprice', '$zjy_cover', '$zjy_yuming', '$zjy_template', '$dwz', '$zjy_tkl')";
-			
+			$sql = "INSERT INTO tbk_zjy (zjy_id, zjy_long_title, zjy_short_title, zjy_yprice, zjy_qhprice, zjy_cover, zjy_yuming, zjy_template, zjy_dwz, zjy_tkl) VALUES ('$zid', '$zjy_long_title', '$zjy_short_title', '$zjy_yprice', '$zjy_qhprice', '$zjy_cover', '$zjy_yuming', '$zjy_template', '$zjy_dwzapi', '$zjy_tkl')";
+
 			// 验证插入结果
 			if ($conn->query($sql) === TRUE) {
 			    $result = array(
@@ -108,12 +105,34 @@ if(isset($_SESSION["tbktools.admin"])){
 
 			// 断开数据库连接
 			$conn->close();
-
 		}else{
-			$result = array(
-				"result" => "112",
-				"msg" => "短网址生成失败，请更换API"
-			);
+			// 验证短网址是否生成成功
+			if (strpos($dwz,'http') !== false) {
+				// 生成的结果是一个带有http的短网址
+				// 插入数据库
+				$sql = "INSERT INTO tbk_zjy (zjy_id, zjy_long_title, zjy_short_title, zjy_yprice, zjy_qhprice, zjy_cover, zjy_yuming, zjy_template, zjy_dwz, zjy_tkl) VALUES ('$zid', '$zjy_long_title', '$zjy_short_title', '$zjy_yprice', '$zjy_qhprice', '$zjy_cover', '$zjy_yuming', '$zjy_template', '$dwz', '$zjy_tkl')";
+				
+				// 验证插入结果
+				if ($conn->query($sql) === TRUE) {
+				    $result = array(
+						"result" => "100",
+						"msg" => "创建成功，正在返回首页"
+					);
+				} else {
+				    $result = array(
+						"result" => "110",
+						"msg" => "创建失败，数据库配置发生错误"
+					);
+				}
+
+				// 断开数据库连接
+				$conn->close();
+			}else{
+				$result = array(
+					"result" => "112",
+					"msg" => "短网址生成失败，请更换API，或选择暂不生成"
+				);
+			}
 		}
 	}
 }else{
