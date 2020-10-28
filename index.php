@@ -63,7 +63,7 @@ if ($result_tp->num_rows > 0) {
 
 		<!-- tkl -->
 		<div id="tkl">
-			<div class="kl" id="tkl_text">'.$zjy_tkl.'</div>
+			<div class="kl" id="tkl_text">1'.$zjy_tkl.':/</div>
 			<div class="copy" id="copy">立即复制</div>
 		</div>
 
@@ -95,7 +95,7 @@ if ($result_tp->num_rows > 0) {
 
 		<!-- tkl -->
 		<div id="tkl">
-			<div class="kl" id="tkl_text">'.$zjy_tkl.'</div>
+			<div class="kl" id="tkl_text">1'.$zjy_tkl.':/</div>
 			<div class="copy" id="copy">立即复制</div>
 		</div>
 
@@ -129,7 +129,7 @@ if ($result_tp->num_rows > 0) {
 		<div id="tkl">
 			<div class="kl">
 				<div class="tkltips">复制这个淘口令</div>
-				<div class="tkltext" id="tkl_text">'.$zjy_tkl.'</div>
+				<div class="tkltext" id="tkl_text">1'.$zjy_tkl.':/</div>
 			</div>
 			<div class="copy" id="copy">立即复制</div>
 		</div>
