@@ -23,7 +23,7 @@ session_start();
 if(isset($_SESSION["tbktools.admin"])){
 
   // 获得设置对象
-  $setobj = trim($_GET["setobj"]);
+  // $setobj = trim($_GET["setobj"]);
 
   // 引入数据库配置
   include '../Db_Connect.php';
@@ -83,7 +83,7 @@ if(isset($_SESSION["tbktools.admin"])){
 
       <!-- 要求 -->
       <br/>
-      <div class="alert alert-secondary">如需添加短网址API，有开发能力的朋友，请自行开发，要求返回JSON格式：{"result":"100","msg":"解析成功","dwz":"https:\/\/dwz.mk\/yIzQJb"}，其中result为状态码，100代表正常，其他状态码可以自己定，msg为状态码提示文字，dwz为短网址。<br/><br/>要求Get方式传入长链接，例如：http://www.xxx.com/dwz.php?url=长链接，即在上方API URL只需要填写 http://www.xxx.com/dwz.php?url= 即可。<br/><br/>我已经提供2个短网址API，已经提供了源码，只需简单修改源码的相关参数即可，<a href="https://mp.weixin.qq.com/s/1fXx7hdLaN2L-daKyk2pzA" target="blank">小码短网址</a>和<a href="https://mp.weixin.qq.com/s/GTrnxvjqPAOVviquc6zUIA" target="blank">腾讯w.url.cn短网址</a>，请点击查看配置方法。
+      <div class="alert alert-secondary">如需添加短网址API，有开发能力的朋友，请自行开发，要求返回JSON格式：{"result":"100","msg":"解析成功","dwz":"https:\/\/dwz.mk\/yIzQJb"}，其中result为状态码，100代表正常，其他状态码可以自己定，msg为状态码提示文字，dwz为短网址。<br/><br/>要求Get方式传入长链接，格式：http://www.xxx.com/dwz.php?long_url=长链接，即在上方API URL只需要填写 http://www.xxx.com/dwz.php?long_url= 即可。<br/><br/>我已经提供1个短网址API，已经提供了源码，有开发能力的用户，可以在api目录打开dwz.php查看。
       </div>
     </div>';
 

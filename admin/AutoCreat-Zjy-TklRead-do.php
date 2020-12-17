@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("Content-type:application/json");
 
 // 获得前端POST过来的参数（淘口令）
@@ -75,12 +76,30 @@ if (empty($autozjy_tkl)) {
 
 							// 解析结果变量
 							$long_title = $Read_Tkl_Url_Arr["data"]["item_info"]["title"];// 长标题
-							$short_title = mb_substr($long_title,0,10,'utf-8');// 短标题
+							$short_title = mb_substr($long_title,0,13,'utf-8');// 短标题
 							$picUrl = $Read_Tkl_Url_Arr["data"]["item_info"]["pict_url"];// 主图地址
 							$yprice = $Read_Tkl_Url_Arr["data"]["item_info"]["zk_final_price"];// 原价
 							$youhuiquan = $Read_Tkl_Url_Arr["data"]["youhuiquan"]; // 优惠券价格
 							$qhprice = $yprice-$youhuiquan; // 券后价
 							$mytkl = $Read_Tkl_Url_Arr["data"]["tpwd"]; // 淘口令
+
+							// 原价格式化
+							if(strpos($yprice,'.') !==false){
+								// 如果包含小数点，就要在最后面加一个0
+								$yuanjia = $yprice."0";
+							}else{
+								// 不包含小数点，就要在最后面加.00
+								$yuanjia = $yprice.".00";
+							}
+
+							// 券后价格式化
+							if(strpos($qhprice,'.') !==false){
+								// 如果包含小数点，就要在最后面加一个0
+								$quanhoujia = $qhprice."0";
+							}else{
+								// 不包含小数点，就要在最后面加.00
+								$quanhoujia = $qhprice.".00";
+							}
 
 							// 判断解析结果
 							if ($code == 200) {
@@ -91,18 +110,25 @@ if (empty($autozjy_tkl)) {
 									"goods_msg" => array(
 										"zjy_long_title" => $long_title,
 										"zjy_short_title" => $short_title,
-										"zjy_yprice" => $yprice."0",
-										"zjy_qhprice" => $qhprice."0",
+										"zjy_yprice" => $yuanjia,
+										"zjy_qhprice" => $quanhoujia,
 										"zjy_tkl" => $mytkl,
 										"zjy_cover" => $picUrl
 									)
 								);
 							}else{
 								// 否则解析不成功，返回不成功的原因
-								$result = array(
-									"result" => $code,
-									"msg" => $msg
-								);
+								if ($code == '-1') {
+									$result = array(
+										"result" => $code,
+										"msg" => "服务器ip地址未加入白名单"
+									);
+								}else{
+									$result = array(
+										"result" => $code,
+										"msg" => $msg
+									);
+								}
 							}
 						}
 					}

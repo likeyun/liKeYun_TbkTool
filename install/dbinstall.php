@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL^E_NOTICE^E_WARNING);
 header("Content-type:application/json");
 
 //获得配置
@@ -137,6 +138,58 @@ if ($conn->connect_error) {
 				dwzapi TEXT(1000) NULL
 			)";
 
+			// 创建tbk_gzh_zjy数据表
+			$tbk_gzh_zjy = "CREATE TABLE tbk_gzh_zjy (
+				id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+				zid VARCHAR(32) NULL,
+				title TEXT(1000) NULL,
+				openid VARCHAR(32) NULL,
+				tkl VARCHAR(32) NULL,
+				gzhzjy_pv VARCHAR(32) DEFAULT '0',
+				creat_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+				dwz VARCHAR(32) NULL
+			)";
+			$conn->query($tbk_gzh_zjy);
+
+			// 创建tbk_gzh_user数据表
+			$tbk_gzh_user = "CREATE TABLE tbk_gzh_user (
+				id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+				openid VARCHAR(32) NULL,
+				reg_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+			)";
+			$conn->query($tbk_gzh_user);
+
+			// 创建tbk_gzh_set数据表
+			$tbk_gzh_set = "CREATE TABLE tbk_gzh_set (
+				gzh_set_obj VARCHAR(32) PRIMARY KEY,
+				gzh_set_val VARCHAR(32) NULL
+			)";
+			$conn->query($tbk_gzh_set);
+
+			// 创建tbk_active_zjy数据表
+			$tbk_active_zjy = "CREATE TABLE tbk_active_zjy (
+				id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+				active_id VARCHAR(32) NULL,
+				active_title VARCHAR(32) NULL,
+				active_creat_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+				active_pv VARCHAR(32) DEFAULT '0',
+				active_dwz VARCHAR(32) NULL,
+				active_yuming TEXT(100) NULL
+			)";
+			$conn->query($tbk_active_zjy);
+
+			// 创建tbk_active_project数据表
+			$tbk_active_project = "CREATE TABLE tbk_active_project (
+				id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+				active_id VARCHAR(32) NULL,
+				active_project_id VARCHAR(32) NULL,
+				active_pic TEXT(100) NULL,
+				active_text TEXT(100) NULL,
+				active_copy VARCHAR(32) NULL
+			)";
+			$conn->query($tbk_active_project);
+
+
 			if ($conn->query($tbk_zjy) === TRUE) {
 
 				if ($conn->query($tbk_yuming) === TRUE) {
@@ -153,12 +206,14 @@ if ($conn->connect_error) {
 							mysqli_query($conn,"INSERT INTO tbk_set (Set_Obj, Set_Val) VALUES ('zjy_pid', '$pid')");
 							mysqli_query($conn,"INSERT INTO tbk_set (Set_Obj, Set_Val) VALUES ('zjy_tbname', '$tbname')");
 							mysqli_query($conn,"INSERT INTO tbk_set (Set_Obj, Set_Val) VALUES ('zjy_appkey', '$appkey')");
+							mysqli_query($conn,"INSERT INTO tbk_gzh_set (gzh_set_obj, gzh_set_val) VALUES ('Token', '未设置')");
+							mysqli_query($conn,"INSERT INTO tbk_gzh_set (gzh_set_obj, gzh_set_val) VALUES ('注册验证码', '未设置')");
 
 							if ($conn->query($tbk_dwzapi) === TRUE) {
 
 								// 创建默认短网址API
-								$dwzapiurl = "http://".$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER["REQUEST_URI"]))."/api/tcn.php?long_url=";
-								mysqli_query($conn,"INSERT INTO tbk_dwzapi (dwztitle, dwzapi) VALUES ('新浪短网址', '$dwzapiurl')");
+								$dwzapiurl = "http://".$_SERVER['HTTP_HOST'].dirname(dirname($_SERVER["REQUEST_URI"]))."/api/dwz.php?long_url=";
+								mysqli_query($conn,"INSERT INTO tbk_dwzapi (dwztitle, dwzapi) VALUES ('R6F短网址', '$dwzapiurl')");
 
 								//数据库配置文件
 								$mysql_data = '<?php

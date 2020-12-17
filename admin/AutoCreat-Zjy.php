@@ -54,12 +54,7 @@ if(isset($_SESSION["tbktools.admin"])){
     <!-- 表单 -->
     <form role="form" action="##" onsubmit="return false" method="post" id="AutoCreatZjyTklRead">
       <!-- 淘口令 -->
-      <div class="input-group mb-3" id="autozjy_tkl">
-        <div class="input-group-prepend">
-          <span class="input-group-text">淘口令</span>
-        </div>
-        <input type="text" name="autozjy_tkl" class="form-control" placeholder="请粘贴淘口令">
-      </div>
+      <textarea name="autozjy_tkl" style="width:100%;-webkit-appearance:none;border:2px solid #333;border-radius:5px;outline:none;font-size:16px;height:120px;margin-bottom:12px;padding:15px 15px;" placeholder="请粘贴淘口令或含有淘口令的文案" id="autozjy_tkl"></textarea>
 
       <!-- 解析提交按钮 -->
       <button type="button" class="btn btn-dark" id="autozjy_tkl_btn" onclick="TklRead();">解析淘口令</button>
@@ -163,10 +158,10 @@ if(isset($_SESSION["tbktools.admin"])){
               $(".container .AutoCreatZjy-Con").css("display","block");
               $(".container .AutoCreatZjy-Con .cbt").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">长标题</span></div><input type=\"text\" name=\"zjy_long_title\" value="+data.goods_msg.zjy_long_title+" class=\"form-control\" placeholder=\"请输入长标题\"></div>");
               $(".container .AutoCreatZjy-Con .dbt").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">短标题</span></div><input type=\"text\" name=\"zjy_short_title\" value="+data.goods_msg.zjy_short_title+" class=\"form-control\" placeholder=\"请输入短标题\"></div>");
-              $(".container .AutoCreatZjy-Con .yj").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">原价</span></div><input type=\"text\" name=\"zjy_yprice\" value="+data.goods_msg.zjy_yprice+" class=\"form-control\" placeholder=\"请输入原价\"></div>");
+              $(".container .AutoCreatZjy-Con .yj").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">原售价</span></div><input type=\"text\" name=\"zjy_yprice\" value="+data.goods_msg.zjy_yprice+" class=\"form-control\" placeholder=\"请输入原价\"></div>");
               $(".container .AutoCreatZjy-Con .qhj").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">券后价</span></div><input type=\"text\" name=\"zjy_qhprice\" value="+data.goods_msg.zjy_qhprice+" class=\"form-control\" placeholder=\"请输入券后价\"></div>");
               $(".container .AutoCreatZjy-Con .tkl").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">淘口令</span></div><input type=\"text\" name=\"zjy_tkl\" value="+data.goods_msg.zjy_tkl+" class=\"form-control\" placeholder=\"请输入淘口令\"></div>");
-              $(".container .AutoCreatZjy-Con .zt").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">主图</span></div><input type=\"text\" name=\"zjy_cover\" value="+data.goods_msg.zjy_cover+" class=\"form-control\" placeholder=\"请输入主图\"></div>");
+              $(".container .AutoCreatZjy-Con .zt").html("<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><span class=\"input-group-text\">商品图</span></div><input type=\"text\" name=\"zjy_cover\" value="+data.goods_msg.zjy_cover+" class=\"form-control\" placeholder=\"请输入主图\"></div>");
             }else{
               $(".container .Result").css('display','block');
               $(".container .Result").html('<div class="alert alert-danger"><strong>'+data.msg+'</strong></div>');

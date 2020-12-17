@@ -83,10 +83,10 @@ if(isset($_SESSION["tbktools.admin"])){
         <input type="text" name="zjy_short_title" class="form-control" placeholder="请输入短标题">
       </div>
 
-      <!-- 原价 -->
+      <!-- 原售价 -->
       <div class="input-group mb-3">
         <div class="input-group-prepend">
-          <span class="input-group-text">原价</span>
+          <span class="input-group-text">原售价</span>
         </div>
         <input type="text" name="zjy_yprice" class="form-control" placeholder="请输入原价，例如39.90">
       </div>
@@ -139,6 +139,11 @@ if(isset($_SESSION["tbktools.admin"])){
         while($row_dwzapi = $result_dwzapi->fetch_assoc()) {
           echo '<option value="'.$row_dwzapi["dwzapi"].'">'.$row_dwzapi["dwztitle"].'</option>';
         }
+        echo '</select>';
+      }else{
+        echo '<select class="form-control" style="margin-bottom:15px;" name="zjy_dwzapi">';
+        echo '<option value="">请选择短网址API</option>';
+        echo '<option value="暂无生成">无短网址API，暂不生成</option>';
         echo '</select>';
       }
 

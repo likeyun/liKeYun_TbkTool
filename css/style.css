@@ -146,3 +146,113 @@
 		margin-top: 20px;
 	}
 }
+
+/*富文本编辑器*/
+#Add-Active-ProJect .modal-body .paiban{
+	margin-top: 20px;
+}
+
+#Add-Active-ProJect .modal-body .paiban a{
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-size: 13px;
+	background: #5a6268;
+	float: left;
+	margin-right: 5px;
+}
+
+#Add-Active-ProJect .modal-body .bianjiqi{
+	width: 100%;
+	height: 200px;
+	border:2px solid #666;
+	border-radius: 5px;
+	margin-top: 60px;
+	outline: none;
+	padding: 10px 10px;
+}
+
+#Add-Active-ProJect .modal-body .copy_status_select{
+	width: 100%;
+	height: 50px;
+	margin-top: 20px;
+}
+
+
+#Edi-Active-ProJect .modal-body .paiban{
+	margin-top: 20px;
+}
+
+#Edi-Active-ProJect .modal-body .paiban a{
+	text-decoration: none;
+	color: #fff;
+	display: block;
+	padding: 3px 5px;
+	border-radius: 3px;
+	font-size: 13px;
+	background: #5a6268;
+	float: left;
+	margin-right: 5px;
+}
+
+#Edi-Active-ProJect .modal-body .bianjiqi{
+	width: 100%;
+	height: 200px;
+	border:2px solid #666;
+	border-radius: 5px;
+	margin-top: 60px;
+	outline: none;
+	padding: 10px 10px;
+}
+
+
+/*活动中间页，上传图片按钮*/
+#Add-Active-ProJect .modal-body .btn{
+  position: relative;
+  margin:10px auto;
+  display: block;
+}
+
+#Add-Active-ProJect .modal-body .file_btn{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background: #5a6268;
+	cursor: pointer;
+	display: block;
+}
+
+#Edi-Active-ProJect .modal-body .btn{
+  position: relative;
+  margin:10px auto;
+  display: block;
+}
+
+#Edi-Active-ProJect .modal-body .file_btn{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	background: #5a6268;
+	cursor: pointer;
+	display: block;
+}
+
+/*全局信息提示框*/
+#Result_Tips{
+	width: 300px;
+	height: 60px;
+	position: fixed;
+	top: 50px;
+	right: 20px;
+	z-index: 99999;
+	/*box-shadow: 0 0 10px #eee;*/
+	display: none;
+}

@@ -60,7 +60,7 @@ if(isset($_SESSION["tbktools.admin"])){
   $result_zjy = $conn->query($sql_zjy);
 
   echo '<div class="container">
-    <h2 class="big-title">淘宝客工具箱 - 中间页管理</h2>
+    <h2 class="big-title">淘宝客工具箱（v2.0.0）</h2>
     <p class="tips">本面板提供淘口令中间页的编辑、删除、生成海报、复制链接、查看数据等功能，也是系统的首页。</p>
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
@@ -73,7 +73,13 @@ if(isset($_SESSION["tbktools.admin"])){
         <a class="nav-link" href="AutoCreat-Zjy.php">自动创建</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" target="blank" href="https://open.21ds.cn/user/oauth/taobao.shtml">更新授权</a>
+        <a class="nav-link" href="Creat-ActiveZjy.php">活动中间页</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Gzh-Zjy.php">公众号配置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" target="blank" href="https://www.ecapi.cn/">更新授权</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="Pid-Set.php">系统设置</a>
@@ -109,31 +115,35 @@ if(isset($_SESSION["tbktools.admin"])){
         <br/>';
       }
       // 分页判断
-      if ($page == 1) {
+      if ($allzjy_num <= 10) {
+        // 所有记录的总数<当前页面显示总数
+      }else if ($page == 1 && $allzjy_num > 10) {
+        // 当前页面是第一页并且所有记录的总数大于当前页显示的总数
         echo '<ul class="pagination">
-        <li class="page-item"><a class="page-link" href="index.php?page=">第'.$page.'页，共'.$allpage.'页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page='.$nextpage.'">下一页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page='.$allpage.'">尾页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
+        <li class="page-item"><a class="page-link" href="?page='.$nextpage.'">下一页</a></li>
+        <li class="page-item"><a class="page-link" href="?page='.$allpage.'">尾页</a></li>
         </ul>
         </div>';
       }else if ($page == $allpage) {
+        // 当前页面已经是最后一页的时候
         echo '<ul class="pagination">
-        <li class="page-item"><a class="page-link" href="index.php?page=1">首页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page='.$prepage.'">上一页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page=">第'.$page.'页，已经是最后一页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=1">首页</a></li>
+        <li class="page-item"><a class="page-link" href="?page='.$prepage.'">上一页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，已经是最后一页</a></li>
         </ul>
         </div>';
       }else{
+        // 既不是第一页、也不是最后一页
         echo '<ul class="pagination">
-        <li class="page-item"><a class="page-link" href="index.php?page=1">首页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page='.$prepage.'">上一页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page=">第'.$page.'页，共'.$allpage.'页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page='.$nextpage.'">下一页</a></li>
-        <li class="page-item"><a class="page-link" href="index.php?page='.$allpage.'">尾页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=1">首页</a></li>
+        <li class="page-item"><a class="page-link" href="?page='.$prepage.'">上一页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
+        <li class="page-item"><a class="page-link" href="?page='.$nextpage.'">下一页</a></li>
+        <li class="page-item"><a class="page-link" href="?page='.$allpage.'">尾页</a></li>
         </ul>
         </div>';
       }
-      echo "<p>www.likeyun.cn</p>";
       echo "<br/><br/>";
     }else{
       echo "暂无中间页，<a href='Creat-Zjy.php'>点击创建</a>";
