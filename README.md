@@ -11,9 +11,11 @@
 
 <img src="http://p1.pstatp.com/large/2b29a000353ca21f85bac"/>
 
-# 更新日志1.0.1
-`1、可以选择暂不创建短网址`<br/>
-`2、增加ios14的淘口令复制识别`
+# 当前版本：v2.0.0
+
+# 更新日志2.0.0
+`1、新增公众号快速创建中间页`<br/>
+`2、新增活动中间页（创建凑单、拼单、需要多个步骤参与的活动）`
 
 <h1>安装</h1>
 1、下载完整代码<br/>
@@ -23,6 +25,13 @@ http://www.xxx.com/test/install <br/>
 4、填写相关数值，即可完成安装！<br/><br/>
 5、进入后台，直接访问admin即可
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlqKIICLeAAE66ujAXmsAACyigO33xAAATsC265.jpg"/>
+
+<h1>产品展示-创建活动中间页</h1>
+创建一个多步骤的中间页，插入图片、插入活动文案、插入一键复制按钮等，便于引导用户参与活动。
+<br/>
+<img src="https://github.com/likeyun/TANKING/blob/master/chuanghjianhuoodng.png?raw=true"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/tianjiaxiangmu.png?raw=true"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/xiangmuliebiao.png?raw=true"/>
 
 <h1>产品展示-落地页</h1>
 一段描述产品的文案+淘口令页面的链接+配图。这样的朋友圈反而大家喜欢看，看起来并没有那么强烈的广告厌恶感。微信更加不会检测到你这条朋友圈是淘客，所以是很舒服的做法，想买的人自然会点进去的。那么，链接里到底是什么呢？如下图，这是我自己设计的页面，很简单的布局：顶部短标题+产品主图+长标题+券后价+原价+淘口令+复制按钮+引导文字。<br/>
