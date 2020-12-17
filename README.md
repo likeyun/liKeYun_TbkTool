@@ -16,13 +16,16 @@
 `2、新增活动中间页（创建凑单、拼单、需要多个步骤参与的活动）`<br/>
 `3、优化上一版本已知问题`<br/>
 
-<h1>安装</h1>
+# 快速安装
 1、下载完整代码<br/>
 2、上传到服务器<br/>
 3、访问安装/install/目录<br/>
 4、填写相关数值，即可完成安装！<br/>
 5、进入后台，直接访问/admin/即可<br/><br/>
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true" width="600"/>
+
+# 安装和使用遇到问题请加入交流群
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217130845.png?raw=true" /><br/><br/>
 
 <h1>产品展示-创建活动中间页</h1>
 创建一个多步骤的中间页，插入图片、插入活动文案、插入一键复制按钮等，便于引导用户参与活动。
@@ -66,9 +69,6 @@
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlb6IJP4-AACCOIOL_z0AACyiQG3q4wAAIJQ000.jpg"/>
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlcqISYN0AABj_J5iEVsAACyiQJm_QYAAGQU486.jpg"/>
 <img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tldeIXWQSAAFhIhyEHIUAACyiQL2-b4AAWE6489.jpg"/>
-
 <br/>
-<h1>交流群</h1>
-如果在安装和使用期间遇到无法解决的问题，请扫码加入微信群！<br/><br/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlvOIVGftAAEwfF5vIVMAACyiwO8GWUAATCU059.jpg"/>
+
 
