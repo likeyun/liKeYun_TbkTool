@@ -123,6 +123,9 @@ $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
 if ($conn->connect_error) {
     die("连接失败: " . $conn->connect_error);
 }
+	
+// 更新访问量
+mysqli_query($conn,"UPDATE tbk_active_zjy SET active_pv=active_pv+1 WHERE active_id='$activeid'");
 
 // 获取当前中间页的标题
 $sql_title = "SELECT * FROM tbk_active_zjy WHERE active_id='$activeid'";
