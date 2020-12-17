@@ -28,10 +28,14 @@ http://www.xxx.com/test/install <br/>
 
 <h1>产品展示-创建活动中间页</h1>
 创建一个多步骤的中间页，插入图片、插入活动文案、插入一键复制按钮等，便于引导用户参与活动。
-<br/>
+<br/><br/>
 <img src="https://github.com/likeyun/TANKING/blob/master/chuanghjianhuoodng.png?raw=true"/>
 <img src="https://github.com/likeyun/TANKING/blob/master/tianjiaxiangmu.png?raw=true"/>
 <img src="https://github.com/likeyun/TANKING/blob/master/xiangmuliebiao.png?raw=true"/>
+
+<h1>产品展示-公众号一键创建中间页、活动中间页</h1>
+<br/><br/>
+<img src="https://github.com/likeyun/TANKING/blob/master/gzh_zjy.jpg?raw=true" width="400"/>
 
 <h1>产品展示-落地页</h1>
 一段描述产品的文案+淘口令页面的链接+配图。这样的朋友圈反而大家喜欢看，看起来并没有那么强烈的广告厌恶感。微信更加不会检测到你这条朋友圈是淘客，所以是很舒服的做法，想买的人自然会点进去的。那么，链接里到底是什么呢？如下图，这是我自己设计的页面，很简单的布局：顶部短标题+产品主图+长标题+券后价+原价+淘口令+复制按钮+引导文字。<br/>
