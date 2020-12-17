@@ -7,8 +7,9 @@
 
 这样的好处就是，微信无法检测我们的朋友圈是不是发了淘口令，因为淘口令全都在链接里面。
 
-所以自己开发一款淘口令工具，把淘口令弄到一个页面给大家复制，这样就避免了朋友圈的检测。
+所以自己开发一款淘口令工具，把淘口令弄到一个页面给大家复制，这样就避免了朋友圈的检测。<br/>
 
+<img src="https://github.com/likeyun/TANKING/blob/master/haibaoasf.jpg?raw=true"/><br/>
 
 # 当前版本：v2.0.0，更新日志
 `1、新增公众号快速创建中间页`<br/>
@@ -21,7 +22,7 @@
 3、访问安装/install/目录<br/>
 4、填写相关数值，即可完成安装！<br/>
 5、进入后台，直接访问/admin/即可<br/><br/>
-<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true"/>
+<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true" width="600"/>
 
 <h1>产品展示-创建活动中间页</h1>
 创建一个多步骤的中间页，插入图片、插入活动文案、插入一键复制按钮等，便于引导用户参与活动。
