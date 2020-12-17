@@ -19,7 +19,7 @@
 1、下载完整代码<br/>
 2、上传到服务器<br/>
 3、访问安装/install/目录<br/>
-4、填写相关数值，即可完成安装！<br/><br/>
+4、填写相关数值，即可完成安装！<br/>
 5、进入后台，直接访问admin即可<br/><br/>
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true"/>
 
