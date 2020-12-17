@@ -12,14 +12,14 @@
 
 # 当前版本：v2.0.0，更新日志
 `1、新增公众号快速创建中间页`<br/>
-`2、新增活动中间页（创建凑单、拼单、需要多个步骤参与的活动）`
-`3、优化上一版本已知问题`
+`2、新增活动中间页（创建凑单、拼单、需要多个步骤参与的活动）`<br/>
+`3、优化上一版本已知问题`<br/>
 
 <h1>安装</h1>
 1、下载完整代码<br/>
 2、上传到服务器<br/>
 3、访问安装目录，例如你的代码放在test文件夹，则安装目录是<br/>
-http://www.xxx.com/test/install <br/>
+```http://www.xxx.com/test/install```
 4、填写相关数值，即可完成安装！<br/><br/>
 5、进入后台，直接访问admin即可<br/><br/>
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true"/>
