@@ -11,6 +11,10 @@
 
 <img src="https://github.com/likeyun/TANKING/blob/master/haibaoasf.jpg?raw=true"/><br/>
 
+# 作者网站
+https://www.likeyun.cn/
+备用地址：http://1-url.cn
+
 # 当前版本：v2.0.0，更新日志
 `1、新增公众号快速创建中间页`<br/>
 `2、新增活动中间页（创建凑单、拼单、需要多个步骤参与的活动）`<br/>
