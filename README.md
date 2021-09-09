@@ -11,9 +11,9 @@
 
 <img src="https://github.com/likeyun/TANKING/blob/master/haibaoasf.jpg?raw=true"/><br/>
 
-# 作者网站
-https://www.likeyun.cn/
-备用地址：http://1-url.cn
+# API授权后台
+https://console.ecapi.cn/dashboard/workplace
+
 
 # 当前版本：v2.0.0，更新日志
 `1、新增公众号快速创建中间页`<br/>
