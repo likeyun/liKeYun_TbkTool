@@ -79,7 +79,7 @@ if(isset($_SESSION["tbktools.admin"])){
         <a class="nav-link" href="Gzh-Zjy.php">公众号配置</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" target="blank" href="https://www.ecapi.cn/">更新授权</a>
+        <a class="nav-link" target="blank" href="https://console.ecapi.cn/dashboard/workplace">更新授权</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="Pid-Set.php">系统设置</a>
