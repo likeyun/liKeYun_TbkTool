@@ -87,7 +87,7 @@
 header("Content-Type:text/html;charset=utf-8");
 
 // 获得zid
-$zid = trim($_GET['zid']);
+$zid = trim(addslashes($_GET['zid']));
 
 // 没有zid参数传进来
 if (empty($zid)) {
