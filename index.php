@@ -7,7 +7,7 @@
 header("Content-type:text/html;charset=utf-8");
 
 // 获得中间页ID
-$zid = trim($_GET["zid"]);
+$zid = trim(addslashes($_GET["zid"]));
 
 // 引入数据库配置
 include './Db_Connect.php';
