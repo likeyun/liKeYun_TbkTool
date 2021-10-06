@@ -107,7 +107,7 @@
 header("Content-Type:text/html;charset=utf-8");
 
 // 获得activeid
-$activeid = trim($_GET['activeid']);
+$activeid = trim(addslashes($_GET['activeid']));
 
 // 没有activeid参数传进来
 if (empty($activeid)) {
