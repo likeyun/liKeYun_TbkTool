@@ -4,8 +4,8 @@ header("Content-type:application/json");
 // 数据库配置
 include '../Db_Connect.php';
 
-$user = trim($_POST["user"]);
-$pwd = trim($_POST["pwd"]);
+$user = trim(addslashes($_POST["user"]));
+$pwd = trim(addslashes($_POST["pwd"]));
 
 if($user == "" && $pwd == ""){
 	$result = array(
