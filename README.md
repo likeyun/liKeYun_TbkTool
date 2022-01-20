@@ -29,7 +29,7 @@ https://console.ecapi.cn/dashboard/workplace
 <img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true" width="600"/>
 
 # 安装和使用遇到问题请加入交流群
-<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217130845.png?raw=true" /><br/><br/>
+<img src="http://inews.gtimg.com/newsapp_bt/0/14446103724/641" /><br/><br/>
 
 <h1>产品展示-创建活动中间页</h1>
 创建一个多步骤的中间页，插入图片、插入活动文案、插入一键复制按钮等，便于引导用户参与活动。
