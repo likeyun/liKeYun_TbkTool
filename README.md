@@ -11,6 +11,8 @@
 
 <img src="https://github.com/likeyun/TANKING/blob/master/haibaoasf.jpg?raw=true"/><br/>
 
+交流群：http://inews.gtimg.com/newsapp_bt/0/14446103724/641
+
 # API授权后台
 https://console.ecapi.cn/dashboard/workplace
 
