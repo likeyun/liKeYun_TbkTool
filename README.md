@@ -9,7 +9,7 @@
 
 所以自己开发一款淘口令工具，把淘口令弄到一个页面给大家复制，这样就避免了朋友圈的检测。<br/>
 
-<img src="https://github.com/likeyun/TANKING/blob/master/haibaoasf.jpg?raw=true"/><br/>
+<img src="https://ucc.alicdn.com/pic/developer-ecology/7be8486d0be74d1ca647bfc75e47c0b5.png"/><br/>
 
 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122
 
