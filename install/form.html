@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>里客云淘宝客工具箱系统安装 - v2.0.2</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<style type="text/css">
+		.container{
+			width: 600px;
+		}
+	</style>
+</head>
+<body>
+<h2 id="success"></h2>
+<div class="container mt-3">
+  <br/>
+  <br/>
+  <h3>里客云淘宝客工具箱系统安装 - v2.0.2</h3>
+  <p>请在php5.5以上版本安装，建议使用php7.0</p>
+  <p>安装遇到问题：<a href="http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122" target="blank">请点击这里进入交流群，群内解决问题！群主微信：sansure2016</a></p>
+  
+  <form role="form" action="##" onsubmit="return false" method="post" id="CreatDb">
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库地址</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请粘贴数据库服务器地址，无需端口号" name="dbservername">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库账号</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请输入数据库账号" name="dbusername">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库密码</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请输入数据库密码" name="dbpassword">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">数据库名称</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请输入数据库名" name="dbname">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">管理员账号</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请设置管理员账号" name="adminuser">
+    </div>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">管理员密码</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请设置管理员密码" name="adminpwd">
+    </div>
+    <a href="https://mp.weixin.qq.com/s/re1m2sb0oTVQ9akvq22K3g" target="blank">查看获取PID教程</a><br/>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">淘宝客-PID</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请填写淘宝客PID" name="pid">
+    </div>
+
+    <a href="https://mp.weixin.qq.com/s/kn5jXLxxhQ6vDIO_r7tiLg" target="blank">如何授权淘宝账号？</a><br/>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">淘宝用户名</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请填写授权后的淘宝用户名（淘宝账号）" name="tbname">
+    </div>
+
+    <a href="https://mp.weixin.qq.com/s/jPCLe7FEbS6aCM7ZNcQ9pw" target="blank">ApKey是什么？要怎么获得？</a><br/>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">接口ApKey</span>
+      </div>
+      <input type="text" class="form-control" placeholder="请填写ApKey" name="appkey">
+    </div>
+    <button type="button" class="btn btn-dark" onclick="CreatDb();" id="quanju_btn_bgcolor">立即安装</button>
+  </form>
+  <br/>
+  <div class="Result"></div>
+  <!-- 安装帮助 -->
+  <div class="alert alert-secondary">
+    <p><b>数据库地址：</b>在你数据库管理面板可以查看数据库地址、账号、密码、以及数据库名称，如果你是用云服务器宝塔面板搭建的网站，使用的是mysql数据库，那么你的数据库服务器地址可以填写localhost或者127.0.0.1</p>
+    <p><b>安装出错：</b>发现安装出错、安装不成功等问题、请检查数据库服务器地址、账号、密码、数据库名称是否正确、再检查你的php版本是否符合我们的系统要求，建议切换为php5.5~7.0版本</p>
+  </div>
+</div>
+
+<!-- Ajax -->
+<script type="text/javascript">
+  // 关闭提示
+  function closesctips(){
+    $(".container .Result").css('display','none');
+  }
+
+  // Ajax创建数据库
+  function CreatDb(){
+      $.ajax({
+          type: "POST",
+          url: "dbinstall.php",
+          data: $('#CreatDb').serialize(),
+          success: function (data) {
+            // 创建成功
+            if (data.result == "100") {
+               $(".container .Result").css('display','block');
+               $(".container .Result").html('<div class="alert alert-success"><strong>'+data.msg+'</strong></div>');
+               $(".container").css('display','none');
+               $("#success").html("安装成功，<a href=\"../admin/\">前往后台>></a>");
+
+            }else{
+               $(".container .Result").css('display','block');
+               $(".container .Result").html('<div class="alert alert-danger"><strong>'+data.msg+'</strong></div>');
+            }
+            // 关闭提示
+            setTimeout('closesctips()', 3000);
+          },
+          error : function(data) {
+            // 创建失败
+             $(".container .Result").css('display','block');
+             $(".container .Result").html('<div class="alert alert-danger"><strong>服务器发生错误</strong></div>');
+             setTimeout('closesctips()', 3000);
+          }
+      });
+  }
+</script>
+</body>
+</html>
