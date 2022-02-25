@@ -3,7 +3,7 @@
 <?php
 // 开源作者：TANKING
 // 如有遇到安装问题，请加入微信群
-// 微信群进群地址：http://pic.iask.cn/fimg/591377922798.jpg
+// 群主微信：sansure2016
 header("Content-type:text/html;charset=utf-8");
 
 // 获得中间页ID
