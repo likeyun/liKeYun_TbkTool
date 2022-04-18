@@ -42,4 +42,4 @@
 http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122
 
 # 领券页面demo
-![微信图片_20220418124527.jpg](https://ucc.alicdn.com/pic/developer-ecology/2c4d835015fe44ff99caf43ba42568c2.jpg)
+<img src="https://ucc.alicdn.com/pic/developer-ecology/2c4d835015fe44ff99caf43ba42568c2.jpg" width="250" />
