@@ -30,13 +30,30 @@
 ![tbk_5.png](https://ucc.alicdn.com/pic/developer-ecology/c822e0350df94b39b6af6112bfd6bab5.png)
 ![tbk_7.png](https://ucc.alicdn.com/pic/developer-ecology/6aba51bec2204697b18b92ac6e1f7d15.png)
 
-
 # 快速安装
 1、下载完整代码<br/>
 2、上传到服务器<br/>
 3、访问安装/install/目录<br/>
 4、填写相关数值，即可完成安装！<br/>
 5、进入后台，直接访问/admin/即可<br/><br/>
+
+# 伪静态设置
+使用工具箱自带的【本地短网址】，需要设置伪静态规则，具体如下：
+
+Nginx服务器
+---
+```
+location / {
+  if (!-e $request_filename) {
+    rewrite ^/(.*)$ /s/index.php?id=$1 last;
+  }
+}
+```
+
+Apache服务器
+---
+Apache服务器的伪静态规则我们已经集成在源码中。
+
 
 # 安装和使用遇到问题请加入交流群
 http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122
