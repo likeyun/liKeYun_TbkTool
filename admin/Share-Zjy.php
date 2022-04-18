@@ -24,23 +24,21 @@ if(isset($_SESSION["tbktools.admin"])){
   		$result_zjyMsg = $conn->query($sql_zjyMsg);
   		if ($result_zjyMsg->num_rows > 0) {
   			while($row_zjyMsg = $result_zjyMsg->fetch_assoc()) {
-  				
   				$dwz = $row_zjyMsg["zjy_dwz"];
   				$zjy_yuming = $row_zjyMsg["zjy_yuming"];
-  				$zdy_text = $row_zjyMsg["zdy_text"];
-  				$gdydwa_1 = $row_zjyMsg["gdydwa_1"];
-  				$gdydwa_2 = $row_zjyMsg["gdydwa_2"];
-
+  				
   				// 拼接长链接
-  				$longUrl = $zjy_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."/"."index.php?zid=".$zid;
+  				$longUrl_ = substr($zjy_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."/",-2);
+  				if($longUrl_ == '//'){
+  		            $longUrl = $zjy_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."index.php?zid=".$zid;
+  		        }else{
+  		            $longUrl = $zjy_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."/"."index.php?zid=".$zid;
+  		        }
   				$result = array(
 					"result" => "100",
 					"msg" => "分享成功",
 					"dwz" => $dwz,
-					"longUrl" => $longUrl,
-					"zdy_text" => $zdy_text,
-					"gdydwa_1" => $gdydwa_1,
-					"gdydwa_2" => $gdydwa_2
+					"longUrl" => $longUrl
 				);
   			}
   		}else{

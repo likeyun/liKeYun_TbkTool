@@ -30,7 +30,12 @@ if(isset($_SESSION["tbktools.admin"])){
   				$active_yuming = $row_zjyMsg["active_yuming"];
 
   				// 拼接长链接
-  				$longUrl = $active_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."/"."activezjy.php?activeid=".$active_id;
+  		        $longUrl_ = substr($active_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."/",-2);
+  		        if($longUrl_ == '//'){
+  		            $longUrl = $active_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."activezjy.php?activeid=".$active_id;
+  		        }else{
+  		            $longUrl = $active_yuming.dirname(dirname($_SERVER["REQUEST_URI"]))."/"."activezjy.php?activeid=".$active_id;
+  		        }
   				$result = array(
 					"result" => "100",
 					"msg" => "分享成功",

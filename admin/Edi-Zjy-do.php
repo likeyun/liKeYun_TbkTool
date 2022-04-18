@@ -70,12 +70,12 @@ if(isset($_SESSION["tbktools.admin"])){
 		if ($conn->query($sql) === TRUE) {
 		    $result = array(
 				"result" => "100",
-				"msg" => "更新成功，正在返回首页"
+				"msg" => "更新成功"
 			);
 		} else {
 		    $result = array(
 				"result" => "109",
-				"msg" => "更新失败，数据库配置发生错误"
+				"msg" => "更新失败，数据库配置发生错误，请查看Edi-Zjy-do.php是否存在服务错误，可F12打开开发者工具选择NetWork->Preview查看网络请求进行排查。"
 			);
 		}
 

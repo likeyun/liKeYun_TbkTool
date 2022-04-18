@@ -23,7 +23,6 @@
       <img src="../images/tblm-icon.png">
     </div>
     <div class="right">
-      <h3 class="bigtitle">里客云淘宝客工具箱</h3>
       <div class="form">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
@@ -39,7 +38,7 @@
         </div>
         <!-- 记住密码 -->
 		<select class="form-control" style="margin-bottom:15px;" id="select_pwd"></select>
-        <button type="button" class="btn btn-dark" style="width: 100%;background: linear-gradient(to bottom right, #ed773c , #ea4e44);border:none;" onclick="login();">立即登录</button>
+        <button type="button" class="btn btn-dark" style="width: 100%;" onclick="login();">立即登录</button>
         <div class="Result"></div>
       </div>
     </div>

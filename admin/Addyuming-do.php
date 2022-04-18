@@ -29,20 +29,18 @@ if(isset($_SESSION["tbktools.admin"])){
 			// 连接数据库
 			$conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
 			mysqli_query($conn, "SET NAMES UTF-8");
-
-			// 更新数据库
-			$sql = "INSERT INTO tbk_yuming (yuming) VALUES ('$yuming')";
+			$sql = "INSERT INTO tbk_yuming (yuming,type) VALUES ('$yuming','落地域名')";
 			
 			// 验证插入结果
 			if ($conn->query($sql) === TRUE) {
 			    $result = array(
 					"result" => "100",
-					"msg" => "添加成功，正在返回上一页"
+					"msg" => "添加成功"
 				);
 			} else {
 			    $result = array(
 					"result" => "103",
-					"msg" => "添加失败，数据库配置发生错误"
+					"msg" => "添加失败，数据库配置发生错误，请查看Addyuming-do.php是否存在服务错误，可F12打开开发者工具选择NetWork->Preview查看网络请求进行排查。"
 				);
 			}
 

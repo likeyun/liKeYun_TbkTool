@@ -1,17 +1,3 @@
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
-<!-- 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122 -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,59 +35,56 @@ if(isset($_SESSION["tbktools.admin"])){
   $conn = new mysqli($db_url, $db_user, $db_pwd, $db_name);
   mysqli_query($conn, "SET NAMES UTF-8");
 
-  //计算中间页总量
-  $sql_zjy_num = "SELECT * FROM tbk_zjy";
+  // 计算中间页总量
+  $sql_zjy_num = "SELECT * FROM tbk_zjy WHERE user = '$user'";
   $result_zjy_num = $conn->query($sql_zjy_num);
   $allzjy_num = $result_zjy_num->num_rows;
 
-  //每页显示的活码数量
+  // 每页显示的活码数量
   $lenght = 10;
 
-  //当前页码
+  // 当前页码
   @$page = $_GET['page']?$_GET['page']:1;
 
-  //每页第一行
+  // 每页第一行
   $offset = ($page-1)*$lenght;
 
-  //总数页
+  // 总数页
   $allpage = ceil($allzjy_num/$lenght);
 
-  //上一页     
+  // 上一页     
   $prepage = $page-1;
 
-  //下一页
+  // 下一页
   $nextpage = $page+1;
 
   // 获得中间页列表
-  $sql_zjy = "SELECT * FROM tbk_zjy ORDER BY ID DESC limit {$offset},{$lenght}";
+  $sql_zjy = "SELECT * FROM tbk_zjy WHERE user = '$user' ORDER BY ID DESC limit {$offset},{$lenght}";
   $result_zjy = $conn->query($sql_zjy);
 
   echo '<div class="container">
-    <h2 class="big-title">淘宝客工具箱（v2.0.2）</h2>
-    <p class="tips">本面板提供淘口令中间页的编辑、删除、生成海报、复制链接、查看数据等功能，也是系统的首页。</p>
+    <h2 class="big-title">淘宝客工具箱（v3.0）</h2>
+    <p class="tips">淘口令解析、转换、创建中间页、创建分享。</p>
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" data-toggle="pill" href="#home" id="quanju_btn_bgcolor">中间页</a>
-      </li>
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="Creat-Zjy.php">手动创建</a>
-      </li> -->
-      <li class="nav-item">
-        <a class="nav-link" href="AutoCreat-Zjy.php">快速创建</a>
+        <a class="nav-link active" data-toggle="pill" href="#home">中间页</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Creat-ActiveZjy.php">活动页</a>
+        <a class="nav-link" href="Creat-Zjy.php?token='.md5('创建链接'.time()).'&lang=zh_CN&charset=utf-8">创建链接</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Pid-Set.php">系统设置</a>
+        <a class="nav-link" href="Creat-ActiveZjy.php?token='.md5('活动页'.time()).'&lang=zh_CN&charset=utf-8">活动页</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Exit-Login.php">退出登录</a>
+        <a class="nav-link" href="Peizhi.php?token='.md5('工具箱配置'.time()).'&lang=zh_CN&charset=utf-8">工具箱配置</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="Exit-Login.php?token='.md5('工具箱配置'.time()).'&lang=zh_CN&charset=utf-8">退出登录</a>
       </li>
     </ul><br/>';
 
     if ($result_zjy->num_rows > 0) {
-      echo '<table class="table"><thead><tr><th style="overflow:hidden;width:150px;font-size:15px;">标题</th><th style="font-size:15px;">访问量</th><th style="font-size:15px;">操作</th></tr></thead>';
+      echo '<table class="table"><thead><tr><th class="dbt">标题</th><th style="font-size:15px;">访问量</th><th style="font-size:15px;" class="caozuo">操作</th></tr></thead>';
       while($row_zjy = $result_zjy->fetch_assoc()) {
         $zid = $row_zjy["zjy_id"];
         $zjy_long_title = $row_zjy["zjy_long_title"];
@@ -114,14 +97,13 @@ if(isset($_SESSION["tbktools.admin"])){
         $zjy_pv = $row_zjy["zjy_pv"];
         $zjy_tkl = $row_zjy["zjy_tkl"];
 
-        echo '
-			    <tbody>
-			      <tr>
-			        <td style="overflow:hidden;width:150px;font-size:15px;">'.$zjy_short_title.'</td>
-			        <td style="font-size:15px;">'.$zjy_pv.'</td>
-			        <td><a href="Edi-Zjy.php?zid='.$zid.'" class="card-link" style="font-size:15px;">编辑</a> <a href="javascript:;" id="'.$zid.'" onclick="ShareZjy(this);" data-toggle="modal" data-target="#Zjy-Share" style="font-size:15px;">分享</a> <a href="#" class="card-link" id="'.$zid.'" onclick="GetZjyId(this);" data-toggle="modal" data-target="#delzjy_model" style="font-size:15px;">删除</a></td>
-			      </tr>
-			    </tbody>';
+        echo '<tbody>
+        <tr>
+        <td>'.$zjy_short_title.'</td>
+        <td style="font-size:15px;">'.$zjy_pv.'</td>
+        <td class="caozuo"><a href="Edi-Zjy.php?zid='.$zid.'&token='.md5($zid).'" class="card-link" style="font-size:15px;">编辑</a> <a href="javascript:;" id="'.$zid.'" onclick="ShareZjy(this);" data-toggle="modal" data-target="#Zjy-Share" style="font-size:15px;">分享</a> <a href="#" class="card-link" id="'.$zid.'" onclick="GetZjyId(this);" data-toggle="modal" data-target="#delzjy_model" style="font-size:15px;">删除</a></td>
+        </tr>
+        </tbody>';
       }
       echo '</table>';
       // 分页判断
@@ -130,9 +112,9 @@ if(isset($_SESSION["tbktools.admin"])){
       }else if ($page == 1 && $allzjy_num > 10) {
         // 当前页面是第一页并且所有记录的总数大于当前页显示的总数
         echo '<ul class="pagination">
-        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
         <li class="page-item"><a class="page-link" href="?page='.$nextpage.'">下一页</a></li>
         <li class="page-item"><a class="page-link" href="?page='.$allpage.'">尾页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
         </ul>
         </div>';
       }else if ($page == $allpage) {
@@ -140,7 +122,7 @@ if(isset($_SESSION["tbktools.admin"])){
         echo '<ul class="pagination">
         <li class="page-item"><a class="page-link" href="?page=1">首页</a></li>
         <li class="page-item"><a class="page-link" href="?page='.$prepage.'">上一页</a></li>
-        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，已经是最后一页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
         </ul>
         </div>';
       }else{
@@ -148,15 +130,15 @@ if(isset($_SESSION["tbktools.admin"])){
         echo '<ul class="pagination">
         <li class="page-item"><a class="page-link" href="?page=1">首页</a></li>
         <li class="page-item"><a class="page-link" href="?page='.$prepage.'">上一页</a></li>
-        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
         <li class="page-item"><a class="page-link" href="?page='.$nextpage.'">下一页</a></li>
         <li class="page-item"><a class="page-link" href="?page='.$allpage.'">尾页</a></li>
+        <li class="page-item"><a class="page-link" href="?page=">第'.$page.'页，共'.$allpage.'页</a></li>
         </ul>
         </div>';
       }
       echo "<br/><br/>";
     }else{
-      echo "暂无中间页，<a href='AutoCreat-Zjy.php'>点击创建</a>";
+      echo "<p style='color:#999;font-size:15px;text-align:center;border-top:1px solid #eee;'><img src='../images/nodata.png' style='display:block;width:100px;margin:30px auto 0;opacity:0.3;' />暂无中间页</p>";
     }
 }else{
   echo '<script>location.href="../admin/Login.php";</script>';
@@ -193,7 +175,7 @@ if(isset($_SESSION["tbktools.admin"])){
       <div class="modal-body"></div>
       <!-- 模态框底部 -->
       <div class="modal-footer">
-        <span class="CopyDwzBtn" style="margin:0 auto;"></span>
+        <span class="CopyDwzBtn"></span>
       </div>
     </div>
   </div>
@@ -204,7 +186,7 @@ if(isset($_SESSION["tbktools.admin"])){
 // 获取中间页的zid
 function GetZjyId(event){
   var Zjyid = event.id;
-    $("#delzjy_model .modal-dialog .modal-footer").html("<button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\" id="+Zjyid+" onclick=\"DelZjy(this);\">确定删除</button>");
+    $("#delzjy_model .modal-dialog .modal-footer").html("<button type=\"button\" class=\"btn-zdy\" data-dismiss=\"modal\" id="+Zjyid+" onclick=\"DelZjy(this);\">确定删除</button>");
 }
 
 // 删除中间页
@@ -234,7 +216,7 @@ function ShareZjy(event){
       url: "Share-Zjy.php?zid="+ZjyId,
       success: function (data) {
         $("#Zjy-Share .modal-body").html("<p style='word-wrap:break-word;'>长链接："+data.longUrl+"<p><p>短链接："+data.dwz+"<p></p><div style='width:200px;height:200px;background:#eee;margin:10px auto;'><img src='../api/qrcode.php?content="+data.longUrl+"' width='200'/></div>");
-        $("#Zjy-Share .modal-footer .CopyDwzBtn").html('<button type="button" class="btn btn-secondary" data-clipboard-text='+data.dwz+' id="quanju_btn_bgcolor">复制短链接</button>');
+        $("#Zjy-Share .modal-footer .CopyDwzBtn").html('<button type="button" class="btn btn-secondary" data-clipboard-text='+data.dwz+'>复制链接</button>');
       },
       error : function() {
         alert("服务器发生错误");
@@ -245,7 +227,7 @@ function ShareZjy(event){
 // 复制链接
 var clipboard = new Clipboard('#Zjy-Share .modal-footer .CopyDwzBtn .btn-secondary');
 clipboard.on('success', function (e) {
-    $("#Zjy-Share .modal-footer .CopyDwzBtn").html('<button type="button" class="btn btn-secondary" id="quanju_btn_bgcolor">已复制</button>');
+    $("#Zjy-Share .modal-footer .CopyDwzBtn").html('<button type="button" class="btn btn-secondary">已复制</button>');
 });
 clipboard.on('error', function(e) {
     document.querySelector('#Zjy-Share .modal-footer .CopyDwzBtn .btn-secondary');

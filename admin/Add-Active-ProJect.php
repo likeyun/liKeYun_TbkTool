@@ -11,7 +11,7 @@ $project_copy_status = trim($_POST["project_copy_status"]);
 session_start();
 if(isset($_SESSION["tbktools.admin"])){
 	// 过滤空值
-	if (empty($active_text)) {
+	if (empty($active_text) || $active_text == '<p></p>') {
 		$result = array(
 			"result" => "101",
 			"msg" => "活动内容不得为空"

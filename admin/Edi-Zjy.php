@@ -37,7 +37,12 @@ session_start();
 if(isset($_SESSION["tbktools.admin"])){
 
   // 获得上一页传过来的zjy_id
-  $zid = $_GET["zid"];
+  $zid = trim($_GET["zid"]);
+  $token = trim($_GET["token"]);
+  if(empty($zid) || empty($token) || $token == '' || !isset($token) || $token !== md5($zid)){
+      echo '<p style="text-align:center;margin-top:200px;font-size:50px;">非法请求</p><img src="../images/hack.png" style="margin:10px auto;display:block;" />';
+      exit;
+  }
   
   // 引入数据库配置
   include '../Db_Connect.php';
@@ -54,16 +59,13 @@ if(isset($_SESSION["tbktools.admin"])){
   $sql_zjyMsg = "SELECT * FROM tbk_zjy WHERE zjy_id = ".$zid;
   $result_zjyMsg = $conn->query($sql_zjyMsg);
 
-  // 全局反馈弹出框
-  echo '<div id="Result">弹窗弹窗弹窗</div>';
-
   echo '<div class="container">
     <h2 class="big-title">淘宝客工具箱 - 编辑中间页</h2>
-    <p class="tips">本面板提供中间页的编辑，更新，修改等操作。</p>
+    <p class="tips">中间页编辑，更新，修改等操作。</p>
     <!-- 导航栏 -->
     <ul class="nav nav-pills" role="tablist">
       <li class="nav-item">
-        <a class="nav-link active" href="#" id="quanju_btn_bgcolor">编辑中间页</a>
+        <a class="nav-link active" href="#">编辑</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="index.php">返回首页</a>
@@ -82,9 +84,10 @@ if(isset($_SESSION["tbktools.admin"])){
           $zjy_dwz = $row_zjyMsg["zjy_dwz"];
           $zjy_pv = $row_zjyMsg["zjy_pv"];
           $zjy_tkl = $row_zjyMsg["zjy_tkl"];
+          $zjy_tkl = $row_zjyMsg["zjy_tkl"];
 
           echo '<!-- 表单 -->
-          <form role="form" action="##" onsubmit="return false" method="post" id="EdiZjy">
+          <form role="form" onsubmit="return false" method="post" id="EdiZjy" enctype="multipart/form-data">
             <!-- 长标题 -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -104,7 +107,7 @@ if(isset($_SESSION["tbktools.admin"])){
             <!-- 原价 -->
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <span class="input-group-text">原价</span>
+                <span class="input-group-text">原售价</span>
               </div>
               <input type="text" value="'.$zjy_yprice.'" name="zjy_yprice" class="form-control" placeholder="请输入原价，例如39.90">
             </div>
@@ -127,9 +130,10 @@ if(isset($_SESSION["tbktools.admin"])){
 
             <!-- 主图 -->
             <div class="input-group mb-3" id="zhutu">
-              <input type="text" value="'.$zjy_cover.'" name="zjy_cover" class="form-control" placeholder="请上传商品主图">
-              <div class="input-group-append">
-                <span class="input-group-text" data-toggle="modal" data-target="#upload_zhutu_model">上传图片</span>
+              <input type="text" value="'.$zjy_cover.'" name="zjy_cover" class="form-control zhutuimg" placeholder="请上传商品主图或粘贴主图链接">
+              <div class="input-group-append upload-click">
+                <span class="input-group-text">上传图片</span>
+                <input type="file" name="file" class="file" id="imgselect" />
               </div>
             </div>
 
@@ -137,21 +141,24 @@ if(isset($_SESSION["tbktools.admin"])){
             <input type="text" value="'.$zid.'" name="zid" style="display:none;">';
 
             if ($zjy_template == 'tp1') {
-              echo '<!-- 中间页模板 -->
+              echo '
+              <!-- 中间页模板1 -->
               <select class="form-control" id="byqun_status" style="margin-bottom:15px;" name="zjy_template">
                 <option value="tp1">中间页模板：模板一</option>
                 <option value="tp2">模板二</option>
                 <option value="tp3">模板三</option>
               </select>';
             } else if ($zjy_template == 'tp2') {
-              echo '<!-- 中间页模板 -->
+              echo '
+              <!-- 中间页模2板 -->
               <select class="form-control" id="byqun_status" style="margin-bottom:15px;" name="zjy_template">
                 <option value="tp2">中间页模板：模板二</option>
                 <option value="tp1">模板一</option>
                 <option value="tp3">模板三</option>
               </select>';
             } else if ($zjy_template == 'tp3') {
-              echo '<!-- 中间页模板 -->
+              echo '
+              <!-- 中间页模板3 -->
               <select class="form-control" id="byqun_status" style="margin-bottom:15px;" name="zjy_template">
                 <option value="tp3">中间页模板：模板三</option>
                 <option value="tp1">模板一</option>
@@ -164,7 +171,7 @@ if(isset($_SESSION["tbktools.admin"])){
       }
 
       echo '<!-- 提交 -->
-      <button type="button" class="btn btn-dark" onclick="GetFunWenBenHTMLContent_EdiProject();EdiZjy();" id="quanju_btn_bgcolor">更新中间页</button>
+      <button type="button" class="btn-zdy" onclick="EdiZjy();">提交更新</button>
     </form>
 
     <!-- 处理结果 -->
@@ -176,91 +183,52 @@ if(isset($_SESSION["tbktools.admin"])){
 }
 ?>
 
-<!-- 上传主图 -->
-<div class="modal fade" id="upload_zhutu_model">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
- 
-      <!-- 模态框头部 -->
-      <div class="modal-header">
-        <h4 class="modal-title">上传主图</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
- 
-      <!-- 模态框主体 -->
-      <div class="zhutubody modal-body">
-        <form id="upload_zhutu" enctype="multipart/form-data">
-          <button type="button" class="btn btn-dark">
-            <input type="file" id="select_zhutu" class="file_btn" name="file"/>
-            选择图片
-          </button>
-        </form>
-      </div>
- 
-      <!-- 模态框底部 -->
-      <div class="zhutu_footer modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消上传</button>
-      </div>
- 
-    </div>
-  </div>
-</div>
-
-<!-- Ajax -->
 <script type="text/javascript">
-
-  // 获得自定义编辑器的内容
-  function GetFunWenBenHTMLContent_EdiProject() {
-    var project_text_html = $('#zdy_text_bianjiqi').html();
-    $("#zdy_text_bianjiqi_content").val(project_text_html); // 获取编辑器的html格式内容(编辑项目)
-  }
 
   // 关闭提示函数
   function closesctips(){
     $(".container .Result").css('display','none');
-    $("#Result").css('display','none');
   }
 
-  // Ajax创建中间页
+  // 编辑中间页
   function EdiZjy(){
       $.ajax({
           type: "POST",
           url: "Edi-Zjy-do.php",
           data: $('#EdiZjy').serialize(),
           success: function (data) {
-            // 创建成功
+            
+            // 编辑成功
             if (data.result == "100") {
-              $("#Result").css('display','block');
-              $("#Result").html(data.msg);
-              setTimeout('location.href="index.php"', 1000);
+               $(".container .Result").css('display','block');
+               $(".container .Result").html('<div class="alert alert-success"><strong>'+data.msg+'</strong></div>');
+               location.href='index.php';
             }else{
-              $(".container .Result").css('display','block');
-              $(".container .Result").html('<div class="alert alert-danger"><strong>'+data.msg+'</strong></div>');
+               $(".container .Result").css('display','block');
+               $(".container .Result").html('<div class="alert alert-danger"><strong>'+data.msg+'</strong></div>');
             }
-            // 关闭提示
-            setTimeout('closesctips()', 2500);
           },
           error : function(data) {
+            
             // 创建失败
-             $("#Result").css('display','block');
-             $("#Result").html('服务器发生错误');
-             setTimeout('closesctips()', 2500);
+            $(".container .Result").css('display','block');
+            $(".container .Result").html('<div class="alert alert-danger"><strong>服务器发生错误</strong></div>');
+            setTimeout('closesctips()', 2000);
           },
         beforeSend:function(data){
-          // 正在创建
-           $("#Result").css('display','block');
-           $("#Result").html('正在更新，请稍等...');
+           $(".container .Result").css('display','block');
+           $(".container .Result").html('<div class="alert alert-danger"><strong>正在更新，请稍等</strong></div>');
         }
       });
   }
 
-  // 上传主图
-  var zhutu_lunxun = setInterval("upload_zhutu()",2000);
+    // 上传主图
+    var zhutu_lunxun = setInterval("upload_zhutu()",2000);
     function upload_zhutu() {
-    var zhutu_filename = $("#select_zhutu").val();
+    var zhutu_filename = $("#imgselect").val();
     if (zhutu_filename) {
       clearInterval(zhutu_lunxun);
-      var zhutuform = new FormData(document.getElementById("upload_zhutu"));
+      var zhutuform = new FormData(document.getElementById("EdiZjy"));
       $.ajax({
         url:"upload.php",
         type:"post",
@@ -270,20 +238,31 @@ if(isset($_SESSION["tbktools.admin"])){
         contentType: false,
         success:function(data){
           if (data.res == "400") {
-            $("#zhutu").html('<input type="text" name="zjy_cover" value="'+data.path+'" class="form-control"><div class="input-group-append"><span class="input-group-text">已上传</span></div>');
-            $(".modal .modal-dialog .modal-content .zhutubody").html("<h3>上传成功</h3>");
-            $(".modal .modal-dialog .zhutu_footer").html('<button type="button" class="btn btn-secondary" data-dismiss="modal">完成上传</button>');
+            $("#zhutu .input-group-text").text('已上传');
+            $("#zhutu .zhutuimg").val(data.path);
+            $(".container .Result").css('display','block');
+            $(".container .Result").html('<div class="alert alert-success"><strong>上传成功</strong></div>');
+            // 关闭提示
+            setTimeout('closesctips()', 2000);
+          }else{
+            $(".container .Result").css('display','block');
+            $(".container .Result").html('<div class="alert alert-danger"><strong>上传失败，失败原因：1文件类型不支持，2文件大小超限。如需上传，请刷新页面重试。</strong></div>');
+            $("#zhutu .input-group-text").text('上传失败');
           }
         },
         error:function(data){
-          $(".modal .modal-dialog .modal-content .zhutubody").html("<h3>上传失败，请检查服务器</h3>");
+          $(".container .Result").css('display','block');
+          $(".container .Result").html('<div class="alert alert-danger"><strong>上传失败，请检查服务器及upload.php是否存在服务错误，可F12打开开发者工具选择NetWork->Preview查看网络请求进行排查。</strong></div>');
         },
         beforeSend:function(data){
-          $(".modal .modal-dialog .modal-content .zhutubody").html("<h3>正在上传...</h3>");
+          $("#zhutu .input-group-text").text('正在上传..');
+          $(".container .Result").css('display','block');
+          $(".container .Result").html('<div class="alert alert-danger"><strong>正在上传...</strong></div>');
         }
       })
     }else{
-      // console.log("等待上传");
+    //   $(".container .Result").css('display','block');
+    //   $(".container .Result").html('<div class="alert alert-danger"><strong>等待上传...</strong></div>');
     }
   }
 </script>
