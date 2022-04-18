@@ -14,7 +14,7 @@
 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122
 
 
-# 当前：v2.0，本版特点
+# 当前：v3.0，本版特点
 1、优化UI<br/>
 2、登录新增记住账号密码<br/>
 3、新增自带短网址<br/>
