@@ -14,18 +14,21 @@
 交流群：http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122
 
 
-# 当前版本：v2.0.2，更新日志
-`1、优化UI`<br/>
-`2、登录新增记住账号密码`<br/>
-`3、新增一个长期可用的短网址API`<br/>
-`4、删除公众号模块`<br/>
-`5、删除手动创建`<br/>
-`6、优化API请求步骤和效率`<br/>
+# 当前：v2.0，本版特点
+1、优化UI<br/>
+2、登录新增记住账号密码<br/>
+3、新增自带短网址<br/>
+4、可创建账号，多人使用<br/>
+5、更换更好用的富文本编辑器<br/>
+6、新增在微信跳转到淘宝App领券（仅限IOS系统）<br/>
 
 # 优化后的部分截图
-<img src="https://ucc.alicdn.com/pic/developer-ecology/895779044e0b4198b91fdfc9f7de1f74.png" width="600"/>
-<img src="https://ucc.alicdn.com/pic/developer-ecology/30763e1d14e44766b0932997a2b2f894.png" width="600"/>
-<img src="https://ucc.alicdn.com/pic/developer-ecology/ad5d0344e4fa487eb65ae177831b49bd.png" width="600"/>
+![tbk_1.png](https://ucc.alicdn.com/pic/developer-ecology/b46b8942ad914e47bc0a6af68489801e.png)
+![tbk_2.png](https://ucc.alicdn.com/pic/developer-ecology/fc9d8a8acd2b4561a0309ea2fa72bf7c.png)
+![tbk_3.png](https://ucc.alicdn.com/pic/developer-ecology/63252b1c59534df69d910baa57a71aee.png)
+![tbk_4.png](https://ucc.alicdn.com/pic/developer-ecology/9f6bab2c44d64ce7a872a223eedaa022.png)
+![tbk_5.png](https://ucc.alicdn.com/pic/developer-ecology/c822e0350df94b39b6af6112bfd6bab5.png)
+![tbk_7.png](https://ucc.alicdn.com/pic/developer-ecology/6aba51bec2204697b18b92ac6e1f7d15.png)
 
 
 # 快速安装
@@ -34,49 +37,9 @@
 3、访问安装/install/目录<br/>
 4、填写相关数值，即可完成安装！<br/>
 5、进入后台，直接访问/admin/即可<br/><br/>
-<img src="https://github.com/likeyun/TANKING/blob/master/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20201217125817.png?raw=true" width="600"/>
 
 # 安装和使用遇到问题请加入交流群
 http://www.liketube.cn/ma/common/qun/redirect/?hmid=19122
 
-<h1>产品展示-创建活动中间页</h1>
-创建一个多步骤的中间页，插入图片、插入活动文案、插入一键复制按钮等，便于引导用户参与活动。
-<br/><br/>
-<img src="https://github.com/likeyun/TANKING/blob/master/chuanghjianhuoodng.png?raw=true"/>
-<img src="https://github.com/likeyun/TANKING/blob/master/tianjiaxiangmu.png?raw=true"/>
-<img src="https://github.com/likeyun/TANKING/blob/master/xiangmuliebiao.png?raw=true"/>
-
-<h1>产品展示-落地页</h1>
-一段描述产品的文案+淘口令页面的链接+配图。这样的朋友圈反而大家喜欢看，看起来并没有那么强烈的广告厌恶感。微信更加不会检测到你这条朋友圈是淘客，所以是很舒服的做法，想买的人自然会点进去的。那么，链接里到底是什么呢？如下图，这是我自己设计的页面，很简单的布局：顶部短标题+产品主图+长标题+券后价+原价+淘口令+复制按钮+引导文字。<br/>
-<br/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0B/ChMkKV9tkymIBN6NAA3iBCConXkAACyggHnpekADeIc778.jpg"/>
-
-<br/>
-<h1>动图演示  自动转淘口令</h1>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0B/ChMkKV9tk2-IPDjaAAIjWsMN17sAACygwApf3cAAiNy330.gif"/>
-
-<br/>
-<h1>手动创建中间页</h1>
-将需要创建的商品信息填写进去，选择落地页域名，选择生成短网址的API，选择落地页模板，即可一键生成，转换的淘口令也是你自己的淘口令，因为在一开始安装的时候，已经是授权淘宝，绑定PID了。<br/><br/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlFSICoBZAAD6UQxmONQAACyhgGPNu8AAPpp653.jpg"/>
-
-<br/>
-<h1>自动创建中间页</h1>
-相对于手动，自动只需要粘贴淘口令，就可以把商品信息解析出来，选择落地页域名，选择生成短网址的API，选择落地页模板，即可一键生成，转换的淘口令也是你自己的淘口令，因为在一开始安装的时候，已经是授权淘宝，绑定PID了。<br/><br/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlQGICJ12AABpt8msv8UAACyhwNG5W0AAGnP716.jpg"/>
-
-<br/>
-<h1>一键分享</h1>
-创建之后，就可以分享出去，开始做推广了。直接复制短链接，发朋友圈！<br/><br/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlTWIQVSVAAElbj97y4cAACyiAHKE50AASWG105.jpg"/>
-
-<br/>
-<h1>系统设置</h1>
-系统设置提供了绑定多个落地页域名，短网址API的配置，还有各种参数的设置，例如PID，AppKey，淘宝账号授权等。<br/><br/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlaaILb5YAAB9mIz9GQgAACyiQCW0_YAAH2w592.jpg"/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlb6IJP4-AACCOIOL_z0AACyiQG3q4wAAIJQ000.jpg"/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tlcqISYN0AABj_J5iEVsAACyiQJm_QYAAGQU486.jpg"/>
-<img src="https://common-fd.zol-img.com.cn/g6/M00/0C/0C/ChMkKV9tldeIXWQSAAFhIhyEHIUAACyiQL2-b4AAWE6489.jpg"/>
-<br/>
-
-
+# 领券页面demo
+![微信图片_20220418124527.jpg](https://ucc.alicdn.com/pic/developer-ecology/2c4d835015fe44ff99caf43ba42568c2.jpg)
