@@ -10,6 +10,8 @@
   <script src="../js/clipboard.min.js"></script>
   <link rel="stylesheet" href="../css/bootstrap.min.css">
   <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
   <!-- title旁边的icon和ios设备添加到桌面的图标 -->
   <link rel="icon" href="../images/ico.jpg" type="image/x-icon" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico.jpg">
