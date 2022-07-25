@@ -12,7 +12,11 @@
 <img src="https://ucc.alicdn.com/pic/developer-ecology/83b32d04529f4c0bb082b2b457c8db50.jpg" width="400"/><br/>
 
 交流、解决问题、定制、学习等可以加入我们的开发者交流群
-https://sc01.alicdn.com/kf/H574da7b723cd4c088b082ab93ab6eb8dV.png
+https://sc01.alicdn.com/kf/H574da7b723cd4c088b082ab93ab6eb8dV.png<br/>
+
+# 微信扫码进群
+<img src="https://sc01.alicdn.com/kf/H574da7b723cd4c088b082ab93ab6eb8dV.png" /><br/>
+
 
 
 # 当前：v3.0，本版特点
