@@ -4,12 +4,14 @@
   <title>淘宝客工具箱 - 授权说明</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
   <script src="../js/clipboard.min.js"></script>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
   <!-- title旁边的icon和ios设备添加到桌面的图标 -->
   <link rel="icon" href="../images/ico.jpg" type="image/x-icon" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico.jpg">
@@ -57,12 +59,23 @@ if(isset($_SESSION["tbktools.admin"])){
     </ul><br/>';
     
     // 配置教程
+    // echo '
+    // <div class="PeiZhiJiaoCheng">
+    // <p>本开源平台调用第三方Api实现淘口令解析、转换，所以需要进行Api接口的授权、配置等操作，具体如下：<p>
+    // <p>1、访问<code>https://console.ecapi.cn/user/login</code></p>
+    // <p>2、注册账号、登录、完成进行实名认证</p>
+    // <p>3、进入控制面板->授权管理->淘宝授权，你可以新增授权账号，也可以在你安装本平台时配置的账号进行更新授权，因为淘宝API的限制，每30天都需要进行一次更新授权。</p>
+    // <p>本开源平台无法保障第三方API的长久可用，如果API失效，API平台跑路，导致我们的开源平台无法正常解析淘口令，可以联系开发者寻找其他API平台进行适配，开发者邮箱：king@likeyunba.com，微信：sansure2016</p>
+    // </div>';
+    
+    // 配置教程（折淘客）
     echo '
     <div class="PeiZhiJiaoCheng">
     <p>本开源平台调用第三方Api实现淘口令解析、转换，所以需要进行Api接口的授权、配置等操作，具体如下：<p>
-    <p>1、访问<code>https://console.ecapi.cn/user/login</code></p>
-    <p>2、注册账号、登录、完成进行实名认证</p>
-    <p>3、进入控制面板->授权管理->淘宝授权，你可以新增授权账号，也可以在你安装本平台时配置的账号进行更新授权，因为淘宝API的限制，每30天都需要进行一次更新授权。</p>
+    <p>1、访问<code>http://www.zhetaoke.com/user/user_login.html</code></p>
+    <p>2、注册账号、登录，进入 <code>http://www.zhetaoke.com/user/my_jiekou_beian.aspx</code> 完成接口使用备案类型。</p>
+    <p>3、点击授权管理->淘客授权-代理->获取【授权账号ID（sid）】这个sid就是【淘宝客工具箱 - 配置】里面添加账号需要用的那个sid。</p>
+    <p>3、点击PID管理->新增PID，将你的PID添加进去。点击AppKey查看，这个AppKey就是【淘宝客工具箱 - 配置】里面添加账号需要用的那个AppKey。</p>
     <p>本开源平台无法保障第三方API的长久可用，如果API失效，API平台跑路，导致我们的开源平台无法正常解析淘口令，可以联系开发者寻找其他API平台进行适配，开发者邮箱：king@likeyunba.com，微信：sansure2016</p>
     </div>';
 }else{

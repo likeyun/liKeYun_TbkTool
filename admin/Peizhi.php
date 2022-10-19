@@ -4,12 +4,14 @@
   <title>淘宝客工具箱 - 配置</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="../js/jquery.min.js"></script>
-  <script src="../js/popper.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
   <script src="../js/clipboard.min.js"></script>
-  <link rel="stylesheet" href="../css/bootstrap.min.css">
-  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic.min.css" rel="stylesheet">
+  <link href="https://cdn.bootcdn.net/ajax/libs/open-iconic/1.0.0/font/css/open-iconic-bootstrap.min.css" rel="stylesheet">
   <!-- title旁边的icon和ios设备添加到桌面的图标 -->
   <link rel="icon" href="../images/ico.jpg" type="image/x-icon" />
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../images/ico.jpg">
@@ -169,13 +171,14 @@ if(isset($_SESSION["tbktools.admin"])){
             <input type="text" name="pid" class="form-control" placeholder="粘贴PID">
           </div>
           <div class="form-group">
-            <input type="text" name="appkey" class="form-control" placeholder="粘贴AppKey">
+            <input type="text" name="appkey" class="form-control" placeholder="折淘客的对接秘钥appkey">
           </div>
           <div class="form-group">
             <input type="text" name="user_email" class="form-control" placeholder="输入邮箱">
           </div>
           <div class="form-group">
-            <input type="text" name="tbname" class="form-control" placeholder="输入淘宝账号">
+            <!--<input type="text" name="tbname" class="form-control" placeholder="输入淘宝账号">-->
+            <input type="text" name="tbname" class="form-control" placeholder="折淘客的淘客账号授权ID（SID）">
           </div>
           <button type="submit" class="btn-zdy" onclick="Creatuser();">确认创建</button>
           <div class="Result_Tips"></div>
