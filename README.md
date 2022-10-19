@@ -17,9 +17,18 @@ https://t.focus-img.cn/sh740wsh/bbs/p2/5d81cbd190009054cd755445e3d4d7fe.png
 # 微信扫码进群
 https://t.focus-img.cn/sh740wsh/bbs/p2/5d81cbd190009054cd755445e3d4d7fe.png
 
+# 维护日志（2022-10-19）
+收到很多反馈说淘口令解析失败，经过排查是API失效，现在已经完成API的更换，更换为折淘客的接口。链接：http://www.zhetaoke.com，以上代码已经更新了最新接口，大家只需要替换以下几个php文件即可。<br/>
+
+1、admin/Creat-Zjy-TklRead-do.php<br/>
+2、admin/Peizhi.php<br/>
+3、admin/ShouQuan.php<br/>
+<br/>
+还需要到数据库修改一个数值，登录数据库找到tbk_user这个表，然后修改tbname字段里面的值改为折淘客授权管理页面的授权账号ID（sid），页面链接是：http://www.zhetaoke.com/user/shouquan.html 例如原来你填写的是你的淘宝账号，现在要填写sid，sid是一个数值来的。还需要修改appkey为折淘客的appkey，保存就可以正常使用了。
 
 
-# 当前：v3.0，本版特点
+
+# 当前v3.0版
 1、优化UI<br/>
 2、登录新增记住账号密码<br/>
 3、新增自带短网址<br/>
