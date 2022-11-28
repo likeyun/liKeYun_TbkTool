@@ -1,3 +1,16 @@
+# 项目停止维护
+该项目停止维护，已被集成至我另一个项目，请移步至【引流宝】项目
+https://github.com/likeyun/liKeYun_Huoma
+
+# 项目停止维护
+该项目停止维护，已被集成至我另一个项目，请移步至【引流宝】项目
+https://github.com/likeyun/liKeYun_Huoma
+
+# 项目停止维护
+该项目停止维护，已被集成至我另一个项目，请移步至【引流宝】项目
+https://github.com/likeyun/liKeYun_Huoma
+
+
 # TbkTool
 **淘宝客工具箱，方便淘宝客推广者在微信朋友圈、微信群等渠道进行推广淘口令，生成中间页用于安全推广措施。**
 
